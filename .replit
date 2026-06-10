@@ -26,3 +26,15 @@ externalPort = 80
 [[ports]]
 localPort = 8081
 externalPort = 8081
+
+[[ports]]
+localPort = 18753
+externalPort = 3000
+
+[userenv]
+
+[userenv.shared]
+AI_INTEGRATIONS_OPENAI_BASE_URL = "https://api.openai.com/v1"
+
+[nix]
+channel = "stable-25_05"
