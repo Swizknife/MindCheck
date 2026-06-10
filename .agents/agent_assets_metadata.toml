@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "fBbyE84jLmPaER7t9XvQp"
+uri = "file://artifacts/mental-health-app/public/images/abstract-bg.png"
+type = "image"
+title = "Warm abstract flowing shapes"
+
+[[generated]]
+id = "DlNe3pKW0Bu9NXIWnnY66"
+uri = "file://artifacts/mental-health-app/public/images/mindbot.png"
+type = "image"
+title = "MindBot friendly robot companion"
