@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "fBbyE84jLmPaER7t9XvQp"
@@ -12,3 +11,9 @@ id = "DlNe3pKW0Bu9NXIWnnY66"
 uri = "file://artifacts/mental-health-app/public/images/mindbot.png"
 type = "image"
 title = "MindBot friendly robot companion"
+
+[[outputs]]
+id = "zQHv0aBBunnp7MHq8-82u"
+uri = "file://README.md"
+type = "text"
+title = "MindCheck — Detailed README"
