@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useGetSession, useGenerateReport, ScreeningResult } from "@workspace/api-client-react";
 import { generateReportPdf } from "@/lib/pdf-generator";
-import { Heart, MessageCircle, FileText, AlertTriangle, ArrowRight } from "lucide-react";
+import { Heart, MessageCircle, FileText, AlertTriangle, ArrowRight, Share2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function ResultsPage() {
@@ -47,6 +47,16 @@ export default function ResultsPage() {
 
   const results = session.results as unknown as ScreeningResult;
 
+  const handleShare = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      await navigator.share({ title: "My MindCheck Results", url });
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast({ title: "Link copied!", description: "Share it with someone you trust." });
+    }
+  };
+
   const handleGenerateReport = () => {
     generateReportPdf(session);
     generateReport.mutate({ id: sessionId }, {
@@ -72,7 +82,11 @@ export default function ResultsPage() {
           <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">Hey {session.name}, here's where you're at.</h1>
           <p className="text-muted-foreground text-lg">Thank you for being honest. It takes courage.</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
+          <Button variant="outline" onClick={handleShare} className="rounded-xl border-white/20 bg-white/40 dark:bg-black/40 backdrop-blur-md">
+            <Share2 className="w-4 h-4 mr-2" />
+            Share Results
+          </Button>
           <Button variant="outline" onClick={handleGenerateReport} className="rounded-xl border-white/20 bg-white/40 dark:bg-black/40 backdrop-blur-md">
             <FileText className="w-4 h-4 mr-2" />
             Generate My Report
